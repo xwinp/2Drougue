@@ -13,7 +13,7 @@ class Gamestatus():
         self.page=0
         self.score=0
         # self.reward=0
-    def create_button(self,msg,width=100,height=50,size=48,FILLED=True):
+    def create_button(self,msg,width=150,height=50,size=48,FILLED=True):
         return Button(self.ai_settings,self.screen,msg,width,height,size,FILLED)
     def draw_page(self):
         if self.page==0:

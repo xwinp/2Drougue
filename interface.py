@@ -15,7 +15,7 @@ class Gamestatus():
     def create_button(self,msg,width=200,height=50,size=48,FILLED=True):
         return Button(self.ai_settings,self.screen,msg,width,height,size,FILLED)
     def draw_page(self):
-        if self.game_over==0:
+        if self.page==0:
             # pass
             # life=Life(self.screen)
             # life.draw_life(self.ship_left)
@@ -26,16 +26,16 @@ class Gamestatus():
             start_button.rect.center=(50,50)
             start_button.draw_button()
             talent_button=self.create_button("Talent")
-            talent_button.rect.center=(100,50)
+            talent_button.rect.center=(50,150)
             talent_button.draw_button()
             config_button=self.create_button("Config")
-            config_button.rect.center=(150,50)
+            config_button.rect.center=(50,250)
             config_button.draw_button()
             save_button=self.create_button("Save")
-            save_button.rect.center=(200,50)
+            save_button.rect.center=(50,350)
             save_button.draw_button()
             quit_button=self.create_button("Quit")
-            quit_button.rect.center=(250,50)
+            quit_button.rect.center=(50,450)
             quit_button.draw_button()
     def turn_page(self,mouse_x,mouse_y):
         pass

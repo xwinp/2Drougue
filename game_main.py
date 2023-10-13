@@ -21,13 +21,14 @@ class Game():
             if event.type==pygame.MOUSEBUTTONDOWN:
                 mouse_x,mouse_y=pygame.mouse.get_pos()
                 self.status.turn_page(mouse_x,mouse_y)
+    def draw(self):
+        self.screen.fill(self.ai_settings.bg_color)
+        self.status.draw_page()
+        pygame.display.flip()    
     def run_game(self):
         while True:
-            self.screen.fill(self.ai_settings.bg_color)
             self.check_event()
-            self.status.draw_page()
-
-            pygame.display.flip()
+            self.draw()
             self.clock.tick(60)
 
 game=Game()

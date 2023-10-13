@@ -15,29 +15,34 @@ class Gamestatus():
         # self.reward=0
     def create_button(self,msg,width=150,height=50,size=48,FILLED=True):
         return Button(self.ai_settings,self.screen,msg,width,height,size,FILLED)
+    def new_button(self,msg,centerx,centery,FILL=True):
+        b=self.create_button(msg)
+        b.rect.center=(centerx,centery)
+        b.draw_button(FILL)
+        return b
     def draw_page(self):
         if self.page==0:
             # pass
             # life=Life(self.screen)
             # life.draw_life(self.ship_left)
-            score_button=self.create_button("score:"+str(self.score),200,50,48,0)
-            score_button.rect.center=(self.ai_settings.screen_width-score_button.rect.width,float(score_button.rect.height)/2)
-            score_button.draw_button(False)
-            self.start_button=self.create_button("Start")
-            self.start_button.rect.center=(100,50)
-            self.start_button.draw_button()
-            self.talent_button=self.create_button("Talent")
-            self.talent_button.rect.center=(100,150)
-            self.talent_button.draw_button()
-            self.config_button=self.create_button("Config")
-            self.config_button.rect.center=(100,250)
-            self.config_button.draw_button()
-            self.save_button=self.create_button("Save")
-            self.save_button.rect.center=(100,350)
-            self.save_button.draw_button()
-            self.quit_button=self.create_button("Quit")
-            self.quit_button.rect.center=(100,450)
-            self.quit_button.draw_button()
+
+            # score_button=self.create_button("score:"+str(self.score),200,50,48,0)
+            # score_button.rect.center=(self.ai_settings.screen_width-score_button.rect.width,float(score_button.rect.height)/2)
+            # score_button.draw_button(False)
+            self.start_button=self.new_button("Start",100,50)
+            self.talent_button=self.new_button("Talent",100,150)
+            self.config_button=self.new_button("Config",100,250)
+            self.save_button=self.new_button("Save",100,350)
+            self.quit_button=self.new_button("quit",100,450)
+        elif self.page==1:
+            self.back_button=self.new_button("Back",100,50)
+        elif self.page==2:
+            self.back_button=self.new_button("Back",100,50)
+        elif self.page==3:
+            self.back_button=self.new_button("Back",100,50)
+        elif self.page==4:
+            self.back_button=self.new_button("Back",100,50)
+        
     def turn_page(self,mouse_x,mouse_y):
         if self.page==0:
             if self.start_button.rect.collidepoint(mouse_x,mouse_y):
@@ -51,7 +56,19 @@ class Gamestatus():
                 self.page=4
             if self.quit_button.rect.collidepoint(mouse_x,mouse_y):
                 sys.exit()
-            
+        elif self.page==1:
+            if self.back_button.rect.collidepoint(mouse_x,mouse_y):
+                self.page=0
+        elif self.page==2:
+            if self.back_button.rect.collidepoint(mouse_x,mouse_y):
+                self.page=0
+        elif self.page==3:
+            if self.back_button.rect.collidepoint(mouse_x,mouse_y):
+                self.page=0
+        elif self.page==4:
+            if self.back_button.rect.collidepoint(mouse_x,mouse_y):
+                self.page=0
+        
             
             
         # elif self.page==1:
